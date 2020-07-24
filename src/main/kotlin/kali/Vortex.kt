@@ -27,7 +27,7 @@ class Vortex(val guild: Guild, val masterRole: String) : Thread()
 
   fun banEm()
   {
-    for (i in 10 downTo 1) {
+    for (i in 30 downTo 1) {
       println("$gName => ban in $i")
 
       Thread.sleep(1000)
