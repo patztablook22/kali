@@ -31,11 +31,6 @@ class Bot(val builder: JDABuilder) : ListenerAdapter()
     val text = e.getMessage().getContentRaw()
     val roles: List<Role>? = e.getMember()?.getRoles()
 
-    if (roles == null)
-      return
-    if (roles.none{it.getName() == masterRole })
-      return
-
     if (triggers.any{ it == text })
       Vortex(guild, log, masterRole).start()
   }
