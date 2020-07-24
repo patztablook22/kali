@@ -12,6 +12,6 @@ Avatar taken from [wikipedia](https://en.wikipedia.org/wiki/Kali#/media/File:Kal
 
   1. think first
   2. invite the bot, granting it administrator permissions
-  3. give yourself a protective role "मास्टर"
-  4. trigger Kali by typing "स्टार्ट"  into any visible channel
+  3. give yourself a protective role `मास्टर`
+  4. trigger Kali by typing `स्टार्ट` into any visible channel
   5. enjoy having your emotes, namespace and members ruined
